@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Successful Students | Ezy Keys Driving School</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" type="image/png" href="/favicon.svg">
+    <style>
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="/index.html">
+                <img src="../Images/logo.png" alt="Ezy Keys Driving School Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="About.html">About Us</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="Successful_students.html" class="active">Successful Students</a>
+            <a href="Why90minutes.html">Why 90 Minutes</a>
+            <a href="tel:0417545545" class="phone-btn">📞 0417 545 545</a>
+        </nav>
+    </header>
+
+    <section class="gallery-hero">
+        <h1>Testimonials & Success Gallery</h1>
+        <p>On the fence of hiring Ezy Keys? Check our successful students below. You could be our next success story!</p>
+    </section>
+
+    <main class="main-container">
+        <h2 class="section-title">Our Students</h2>
+        <div class="student-grid" id="gallery-grid"></div>
+    </main>
+
+    <script>
+        const gridContainer = document.getElementById('gallery-grid');
+        const totalImages = 41;
+        
+        // FIXED CASE CAPITALIZATION: Changed from 'TEST_EZY/' to match your folder exactly
+       const folderPath = '../Images/Student_Images/';
+
+        // List of extensions to check sequentially if an image returns a loading error
+        const extensions = ['.jpeg', '.jpg', '.png', '.JPEG', '.JPG', '.PNG'];
+
+        for (let i = 1; i <= totalImages; i++) {
+            const card = document.createElement('div');
+            card.className = 'student-card';
+
+            const img = document.createElement('img');
+            img.className = 'student-img';
+            img.alt = `successful_Student_${i}`;
+            img.loading = 'lazy';
+
+            let extIndex = 0;
+
+            // Function to handle layout loading shifts cleanly
+            function tryLoadImage() {
+                if (extIndex < extensions.length) {
+                    img.src = `${folderPath}successful_Student_ ${i}${extensions[extIndex]}`;
+                    extIndex++;
+                }
+            }
+
+            // Trigger fallback extension mapping if a 404 occurs
+            img.onerror = function() {
+                tryLoadImage();
+            };
+
+            // Start the loading sequence with the first option (.jpeg)
+            tryLoadImage();
+
+            card.appendChild(img);
+            gridContainer.appendChild(card);
+        }
+    </script>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about-col">
+                <div class="footer-logo">
+                    <img src="../Images/logo.png" alt="Ezy Keys Driving School Logo">
+                </div>
+                <p class="footer-desc">
+                    EzyKeys is a passionate and experienced driving school, with a dedicated instructor ready to make our roads safe by guiding and coaching young learners in the right path for their driving independence. We believe that prevention is the first priority when it comes to major road related safety issues in Victoria. As an experienced instructor we carry a responsibility to develop intelligent and disciplined drivers who will help keep our roads safe.
+                </p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="/Ezy_Keys/Ezy_Keys/test.html">Home</a></li>
+                    <li><a href="/Ezy_Keys/Ezy_Keys/pages/About.html">About Us</a></li>
+                    <li><a href="/Ezy_Keys/Ezy_Keys/pages/pricing.html">Pricing</a></li>
+                    <li><a href="/Ezy_Keys/Ezy_Keys/pages/contactus.html">Contact Us</a></li>
+                    <li><a href="/Ezy_Keys/Ezy_Keys/pages/Successful_students.html">Successful Students</a></li>
+                    <li><a href="/Ezy_Keys/Ezy_Keys/pages/Why90minutes.html">Why 90 Minutes</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Get In Touch</h3>
+                <ul class="footer-contact-list">
+                    <li>
+                        <a href="tel:0417545545">
+                            <i class="fas fa-phone-alt icon-pink"></i> 0417 545 545
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/61417545545" target="_blank">
+                            <i class="fab fa-whatsapp icon-green"></i> WhatsApp
+                        </a>
+                    </li>
+                    <li>
+                        <span class="location-item">
+                            <i class="fas fa-map-marker-alt icon-pink"></i> Mornington, Mt Eliza, Mt Martha, Dromana & Safety Beach
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom-wrapper">
+            <div class="footer-bottom-line"></div>
+            <div class="footer-bottom-content">
+                <p class="copyright">© 2026 All rights reserved.</p>
+                <p class="credits">Powered by <span class="syncfuse-text">Syncfuse</span></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
