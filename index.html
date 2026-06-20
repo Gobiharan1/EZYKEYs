@@ -24,22 +24,44 @@
 <body>
 
    <header>
-        <div class="logo">
-            <a href="/index.html">
-                <img src="./Images/logo.png" alt="Ezy Keys Driving School Logo">
-            </a>
-        </div>
-        <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="./pages/About.html">About Us</a>
-            <a href="./pages/pricing.html">Pricing</a>
-            <a href="./pages/contactus.html">Contact Us</a>
-            <a href="./pages/Successful_students.html">Successful Students</a>
-            <a href="./pages/Why90minutes.html">Why 90 Minutes</a>
-            <a href="tel:0417545545" class="phone-btn">📞 0417 545 545</a>
-        </nav>
-    </header>
+    <div class="logo">
+        <a href="/index.html">
+            <img src="./Images/logo.png" alt="Ezy Keys Driving School Logo">
+        </a>
+    </div>
 
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="./pages/About.html">About Us</a>
+        <a href="./pages/pricing.html">Pricing</a>
+        <a href="./pages/contactus.html">Contact Us</a>
+        <a href="./pages/Successful_students.html">Successful Students</a>
+        <a href="./pages/Why90minutes.html">Why 90 Minutes</a>
+        <a href="tel:0417545545" class="phone-btn">📞 0417 545 545</a>
+    </nav>
+
+    <!-- Mobile Hamburger Button -->
+    <button class="mobile-menu-toggle" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
+
+<!-- Mobile Navigation Overlay -->
+<nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="./pages/About.html">About Us</a>
+    <a href="./pages/pricing.html">Pricing</a>
+    <a href="./pages/contactus.html">Contact Us</a>
+    <a href="./pages/Successful_students.html">Successful Students</a>
+    <a href="./pages/Why90minutes.html">Why 90 Minutes</a>
+    <a href="tel:0417545545" class="phone-btn">📞 0417 545 545</a>
+</nav>
+
+<!-- Backdrop Overlay -->
+<div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
     
     <section id="home" class="hero-section-home">
         <div class="hero-container-home">
@@ -300,7 +322,7 @@
         <!-- Column 1: Logo & About Text -->
         <div class="footer-about-col">
             <div class="footer-logo">
-                <img src="/Images/logo.png"alt="Ezy Keys Driving School Logo">
+                <img src="./Images/logo.png" alt="Ezy Keys Driving School Logo">
             </div>
             <p class="footer-desc">
                 EzyKeys is a passionate and experienced driving school, with a dedicated instructor ready to make our roads safe by guiding and coaching young learners in the right path for their driving independence. We believe that prevention is the first priority when it comes to major road related safety issues in Victoria. As an experienced instructor we carry a responsibility to develop intelligent and disciplined drivers who will help keep our roads safe.
@@ -378,6 +400,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+});
+    </script>
+    <script>
+
+function toggleMobileMenu() {
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const overlay = document.getElementById('mobileOverlay');
+    const body = document.body;
+
+    toggle.classList.toggle('active');
+    mobileNav.classList.toggle('active');
+    overlay.classList.toggle('active');
+    body.classList.toggle('menu-open');
+}
+
+document.querySelectorAll('.mobile-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        toggleMobileMenu();
+    });
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.getElementById('mobileNav').classList.contains('active')) {
+        toggleMobileMenu();
+    }
 });
     </script>
 </body>
