@@ -1984,7 +1984,6 @@ footer h3 {
     .mobile-nav {
         display: flex;
         align-items: center;
-        position: absolute;
     }
 
     /* --- Hero --- */
