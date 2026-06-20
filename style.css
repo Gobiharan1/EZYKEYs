@@ -462,6 +462,7 @@ body.menu-open {
 
 .why-90-left-col {
     flex: 1.2;
+    min-width: 0; /* Important */
 }
 
 .why-90-title {
@@ -2027,7 +2028,7 @@ footer h3 {
     /* --- Hero --- */
     .hero-container-home {
         flex-direction: column;
-        text-align: center;
+        text-align: start;
         padding: 50px 5%;
     }
 
@@ -2042,6 +2043,9 @@ footer h3 {
 
     .hero-collage-img {
         max-width: 100%;
+    }
+    .phone-btn.pc{
+        display: none;
     }
 
     .features-list {
@@ -2060,12 +2064,11 @@ footer h3 {
         max-width: 280px;
         text-align: center;
     }
-
     /* --- Stats --- */
-    .stats-container1 {
-        flex-direction: column;
-        gap: 25px;
+   .stats-container1 {
+        flex-wrap: wrap;
         padding: 30px 20px;
+        gap: 20px;
     }
 
     .stat-item h3 {
@@ -2162,7 +2165,7 @@ footer h3 {
     /* --- About Page --- */
     .hero {
         padding: 60px 20px;
-        text-align: center;
+        text-align: start;
     }
 
     .hero p {
@@ -2266,13 +2269,22 @@ footer h3 {
 
     /* --- Gallery Page --- */
     .gallery-hero {
-        padding: 60px 5%;
+        padding: 40px 20px;
         text-align: center;
     }
 
     .gallery-hero h1 {
         font-size: 30px;
+        margin-left: 0;
+        margin-bottom: 15px;
     }
+
+    .gallery-hero p {
+        font-size: 15px;
+        margin-left: 0;
+        max-width: 100%;
+    }
+}
 
     .student-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -2297,6 +2309,7 @@ footer h3 {
 
 /* Small phones (480px and below) */
 @media (max-width: 480px) {
+
     .hero-text h1 {
         font-size: 28px;
     }
